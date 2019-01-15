@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1{
+            background: red;
+        }
+
+        @media screen and (orientation:landscape) {
+            /* landscape 横屏 */
+            #div1{
+                background: #00ff00;
+            }
+        }
+        /* @media  screen and (max-width:768px){
+            #div1{
+                background: blue;
+            }
+        } */
+        /* @media  screen and (min-width:320px){
+            #div1{
+                background: pink;
+            }
+        } */
+
+    </style>
+</head>
+
+<body>
+    <!-- viewport width  =device-width 页面宽度 = 设备宽度-->
+    <div id="div1">阿斯顿发斯蒂芬</div>
+</body>
+
+</html>

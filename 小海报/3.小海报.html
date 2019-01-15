@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1,
+        #div2 {
+            background: #999;
+            height: 50px;
+            margin: 10px auto;
+            text-align: center;
+            font-size: 20px;
+            line-height: 50px;
+        }
+
+        #img-box {
+            width: 960px;
+            margin: 10px auto;
+        }
+
+        #box {
+            width: 960px;
+            height: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        #news {
+            width: 630px;
+            background: #ff0000;
+            height: 300px;
+            float: left;
+            display: table;
+        }
+
+        #happy {
+            width: 300px;
+            background: #0000ff;
+            height: 300px;
+            float: right;
+            display: table;
+            /* 使页面中的元素居中 */
+        }
+
+        p {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        #foot {
+            background: #999;
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+            line-height: 50px;
+            margin-bottom: 0;
+        }
+
+        /* @media screen and (min-width:960px) {
+
+            #div1,
+            #div2,
+            #img-box,
+            #foot,
+            #box {
+                width: 100%;
+            }
+
+            #img-box .num1 {
+                width: 100%;
+                display: block;
+            }
+
+            #img-box .num3 {
+                display: none;
+            }
+
+            #img-box .num2 {
+                display: none;
+            }
+
+            #happy {
+                width: 40%;
+            }
+
+            #news {
+                width: 50%;
+            }
+
+        }
+ */
+
+        @media screen and (max-width:960px) {
+
+            #div1,
+            #div2,
+            #img-box,
+            #foot,
+            #box {
+                width: 100%;
+            }
+
+            #img-box .num1 {
+                display: none;
+            }
+
+            #img-box .num3 {
+                display: none;
+            }
+
+            #img-box .num2 {
+                width: 100%;
+                display: block;
+            }
+
+            #happy {
+                width: 40%;
+            }
+
+            #news {
+                width: 50%;
+            }
+
+        }
+
+        @media screen and (max-width:480px) {
+
+            #div1,
+            #div2,
+            #img-box,
+            #foot,
+            #box {
+                width: 100%;
+            }
+
+         
+            #img-box .num1 {
+                display: none;
+            }
+
+            #img-box .num2 {
+                display: none;
+            }
+
+            #img-box .num3 {
+                width: 100%;
+                display: block;
+            }
+
+            #happy,
+            #news {
+                float: none;
+                width: 100%;
+
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="div1"> 标题</div>
+    <div id="div2"> 内容</div>
+    <div id="img-box">
+        <img class="num1" src="../小海报/01.jpg">
+        <img class="num2" src="../小海报/01_s_2x.jpg">
+        <img class="num3" src="../小海报/01_s.jpg">
+    </div>
+    <div id="box">
+        <div id="news">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut,
+                rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras
+                pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+        </div>
+        <div id="happy">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut,
+                rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras
+                pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+        </div>
+    </div>
+
+    <div id="foot">结尾</div>
+</body>
+
+</html>
