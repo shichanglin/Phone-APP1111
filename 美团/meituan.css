@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+
+    text-decoration: none;
+    color:#fff;
+}
+#header{
+  
+    height: 48px;
+    background:#06c1ae;
+    position: relative;
+    border-bottom:1px solid #21897d;
+  
+   
+}
+#left{
+    position: absolute;
+    height:100%;
+    width: 88px;
+    /* background:blue; */
+    top:0;
+    left:0;
+}
+#left a{
+    position: absolute;
+    text-align: center;
+    line-height: 192%;
+    font-size:23px;
+    display:inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+#middle{
+    height:100%;
+    position: absolute;
+    /* background:red; */
+    width: 100%;
+}
+#middle a{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    background:#05a494;
+    position: absolute;
+    left:27%;
+    top:27%;
+    height: 62%;
+    font-size: 17px;
+}
+#right{
+    position: absolute;
+    right: 0;
+    top:0;
+    height:100%;
+    /* background: yellow; */
+    width: 40px;
+}
+#right a{
+    position: absolute;
+    text-decoration: none;
+    color:#fff;
+    text-align: center;
+    top:48%;
+    font-size:13px;
+    display:inline-block;
+    height: 100%;
+    width: 100%;
+}
+#img-box{
+    /* background:url(../美团/download_banner.png); */
+    height:100%;
+    position: relative;
+    margin: 0 auto;
+    border-bottom: 1px solid #999;
+    
+   
+}
+#img-box img{
+    display: block;
+     width: 100%;
+}
+#open{ 
+    position: absolute;
+    bottom:10%;
+     width: 31.1%;
+     height: 38%;
+     left: 17.4%;
+     z-index: 1;
+       
+}
+#download{
+    position: absolute;
+   bottom:10%;
+    width: 31.1%;
+    height: 38%;
+    right: 17.4%;
+    z-index: 1;
+}
