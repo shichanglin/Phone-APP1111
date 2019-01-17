@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
 }
+body{
+    font-size:.28rem;
+    background: #f0efed;
+}
+li{
+    list-style:none;
+}
 a{
 
     text-decoration: none;
@@ -27,10 +34,10 @@ a{
 #left a{
     position: absolute;
     text-align: center;
-    line-height: 192%;
-    font-size:23px;
+    line-height:1.01rem;
+    font-size:0.32rem;
     display:inline-block;
-    height: 100%;
+    height: 1.01rem;
     width: 100%;
 }
 
@@ -100,3 +107,114 @@ a{
     right: 17.4%;
     z-index: 1;
 }
+#list{
+    width: 100%;
+    height: 3.1rem;
+    border-bottom: 1px solid #DDD8CE;
+    background:#fff;
+       
+}
+#list li{
+    text-align: center;
+  
+    color: #666;
+    padding-top:0.2rem;
+    float: left;
+    width:20%;
+    text-align: center;
+}
+#list .cricle{
+    width:0.7rem;
+    height:.7rem;
+    background: #ff0036;
+    display: block;
+    margin:0 auto;
+    border-radius: 50%;
+}
+#list .name{
+    font-size:.01rem;
+}
+#like{
+    color: #666;
+    background:#fff;
+    padding-left:.2rem;
+    margin-top:.2rem;
+}
+#like h1{
+    padding-left: 5px;
+    background:#fff;
+    height: 0.81rem;
+    line-height: 0.81rem;
+    font-size: .38rem;
+    border-bottom:1px solid  #f0efed;
+
+}
+#like li{
+    display:flex;
+    padding:10px 5px;
+    border-bottom:2px solid  #f0efed;
+}
+#like ul li img{
+    width:1.8rem;
+    height:1.8rem;
+}
+#like .like-intro{
+    flex: 1;
+    margin-left:0.2rem;
+}
+#like .like-intro .intro{
+    font-size:0.01rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#like .like-intro .price{
+    display: block;
+    padding-top:.67rem;
+    color: #06c1ae;
+    font-size: .3rem;
+
+}
+#like .like-intro .danwei{
+    color: #06c1ae;
+    font-size: .24rem;
+
+}
+#like .show-all{
+    color: #06c1ae; 
+    font-size:.32rem;
+    position: relative;
+}
+#like .show-all .arrow{
+    position: absolute;
+    right: .2rem;
+    top:0.2rem;
+}
+#bottom{
+    
+    color:#06c1ae;
+    height: 2rem;
+    width: 100%;
+}
+#bottom .leader{
+    display: flex;
+    height: .5rem;
+    width: 100%;
+
+}
+
+
+#bottom a{
+    float: left;
+    display: block;
+    width: 1.4rem;
+    height: .5rem;
+    border:1px solid #06c1ae;
+    color:#06c1ae;
+    border-radius:10%;
+    margin: .3rem .2rem;
+    text-align: center;
+    line-height: .5rem;
+}
+
+   
