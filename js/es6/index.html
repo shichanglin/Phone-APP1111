@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul>
+        <li>11</li>
+        <li>22</li>
+    </ul>
+    <script>
+        // 1.变量提升 用var声明的变量会提升到全局作用域 此时只是声明但并没有赋值
+        // console.log(a);
+        // var a = 5;
+
+        // let a  = 5;
+        /*let 与var 的区别
+        
+        1.let 没有变量提升 var 有
+        2.let 有块级作用域 var没有作用域
+        3.let 不允许重复声明
+        4.暂时性死区  let  (临时实效区) 在当前作用域不允许有同名的变量进来
+        
+        
+        */
+        // for(let  i = 0 ;i< 5; i++){
+        //     console.log(i);
+
+        // }
+        // consoled.log(i);
+
+
+        //    var aLi= document.getElementsByTagName('li');
+        //  用let可以将i值不释放 一直存在 形成作用域 但容易造成内存泄漏
+        // 用for循环 变量值不释放
+        //    for(let i =0; i< aLi.length;i++){
+        //        aLi[i].onclick = function(){
+        //         console.log(i);
+
+        //        }
+        //    }
+
+
+        //    for(let i =0; i< aLi.length;i++){
+        /*  闭包   函数的立即调用  外部函数中有一个内部函数 内部函数引用外部函数中的局部变量
+            使得这个外部函数中的局部变量i不会释放 一直可以访问
+            缺点：可能会造成内存泄漏 */
+        //        (function(){
+        //         aLi[i].onclick = function(){
+        //         console.log(i);
+        //        }
+
+        //        })(i)
+        //    }
+
+
+        // var a = 10;
+        // var a = 20;
+        // console.log(a);
+
+        // var a = 5;
+        // function fn() {
+        //     console.log(a);
+        //     a = 5;
+
+        // }
+        //暂时性死区  let  (临时实效区) 在当前作用域不允许有同名的变量进来
+        var a = 5;
+        function fn() {
+            console.log(a);
+            let a = 10;
+
+
+        }
+        fn();
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
