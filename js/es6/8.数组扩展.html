@@ -36,15 +36,61 @@
         // })//返回第一个符合条件的成员
         // console.log(result);
 
-        for (var val of arr) {//val对应数组中的每一个元素
-            console.log(val, arr);
-        }
-        for (var index of arr.keys()) {//keys()对应数组中的每一个元素的索引
-            console.log(index);
-        }
-        for (var [index, val] of arr.entries()) {//将key和val都循环 必须是索引在前 值在后面
-            console.log(index, val);
-        }
+        // for (var val of arr) {//val对应数组中的每一个元素
+        //     console.log(val, arr);
+        // }
+        // for (var index of arr.keys()) {//keys()对应数组中的每一个元素的索引
+        //     console.log(index);
+        // }
+        // for (var [index, val] of arr.entries()) {//将key和val都循环 必须是索引在前 值在后面
+        //     console.log(index, val);
+        // }
+
+
+        // arr.forEach(function(val,index){//循环
+
+        //     console.log(val,index)
+        // }) 
+
+        //    var result =  arr.map(function(val,index){//映射一个新的返回满足条件的新的数组
+        //         // return val+"xx";
+        //         if(index>3){
+        //             return val +'xx';
+
+        //         }
+        //         else{
+        //             return val+'yy';
+        //         }
+        //     }) 
+        //     console.log(result);
+
+
+        // var result1 = arr.filter(function (val, index) {//过滤器
+
+        //     return index > 1;
+        // })
+        // console.log(result1);
+        var arr3 = [{
+            name: 'ls',
+            age: 50
+        }, {
+            name: 'sss',
+            age: 20
+        },{
+            name:'iii',
+            age:15
+        },{
+            name:'666',
+            age:14
+        },{
+            name:'ASD',
+            age:18
+        }];
+        var result3 = arr3.filter(function(obj,index){
+            return obj.age>18;
+
+        })
+        console.log(result3);
 
 
     </script>
