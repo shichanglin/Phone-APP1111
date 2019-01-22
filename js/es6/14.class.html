@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name, age) {        //构造器 构造函数
+                this.name = name;
+                this.age = age;
+            }
+            say() {
+                console.log(this.name);
+            }
+        }
+        var p1 = new Person('zs', 18);
+        console.log(p1);
+        class Coder extends Person {         //继承
+            constructor(name, age, color) {  //加自己的属性color
+                super(name, age);            //调用父类的方法
+                this.shirt = color;          //自己的方法
+            }
+            coding() {
+                console.log('我在这敲代码');
+            }
+            static eat() {                  //静态方法与类同时产生 是够着函数下面的方法
+                console.log('eating.....');
+            }
+        }
+        var c1 = new Coder('ls', 22, '绿色');//实例化对象
+        c1.say();
+        console.log(c1);
+        c1.coding();
+        Coder.eat();
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

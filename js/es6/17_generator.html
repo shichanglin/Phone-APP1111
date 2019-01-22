@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../es6/jquery-1.12.4.js"></script>
+    <script>
+        //指针对象 
+        // function* test() {
+        //     console.log('111');
+        //     let x = yield console.log('yield...');
+        //     console.log(x);
+        //     console.log('222');
+        // }
+        // var test = test();
+        // // test.next();
+        // // test.next('哈哈哈');
+        // function* text2() {
+        //     console.log('开始');
+        //     let x = yield console.log('哈哈哈');//停止 但是会执行 输出 哈哈哈
+        //     yield console.log(x); //第二次调用 next    传参
+        //     console.log('heheh');
+        // }
+        // var t = text2();
+        // t.next();
+        // t.next('你好厉害呀');
+        // t.next();
+
+        function* gen(){
+            console.log('请求开始');
+            let id = yield getPro();
+            console.log('第一个请求完成 返回的id是 '+id)
+        }
+        let gen1 =gen();
+        gen1.next();
+
+        
+        function getPro(){
+            $.get('url',{
+                id:1
+            },function (date) { 
+                gen1.next(date.comment);
+
+             },'json')
+        }
+        function getCommernts(){
+            $.get('url',{
+               comment:id
+            },function (date) { 
+                console.log(date);
+                gen1.next();
+
+             },'json')
+
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

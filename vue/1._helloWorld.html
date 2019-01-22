@@ -7,17 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <!-- 
-        let 与const的区别
-        let 是变量 const是常量
+    <div id="div1">
+        {{msg}}
+    </div>
 
-     -->
-     <script>
-     
-     
+    <script src="vue.js"> </script>
+    <script>
+       var vm =  new Vue({
+            el:'#div1',
+            data:{
+                msg:'hello world'
+            }
+        })
+
+    
         
-     
-     </script>
+    </script>
 </body>
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active{
+        color:red;
+    }
+    li:nth-child(1){
+        display: none;
+
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <input type="text" v-model="add" @keyup='filter()'>
+        <button @click='display()'>add</button>
+        <ul>
+            <li :class="{active:obj.isA}" v-for='(obj,index) in showList' @click='col(obj)' >
+                {{obj.val}}
+                <button @click='del(index)'> del</button>
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                add: '',
+                list: [{
+                    val: '',
+                    isA: false
+                }],
+                showList: [{
+                    val: '',
+                    isA: false
+                }]
+            },
+            methods: {
+                display() {
+                    this.list.push({ val: this.add, isA: false });
+                    this.add = ''
+
+                    this.showList = [...this.list];
+
+                },
+
+                del(index) {
+                    //从哪开始删除，删除多少个
+                    this.list.splice(index, 1);
+                    this.showList = [...this.list];
+
+                },
+                col(obj) {
+                    obj.isA = !obj.isA;
+                },
+                filter() {
+                    var arr = this.list.filter((obj) => {
+
+                        return obj.val.includes(this.add);
+
+                    })
+
+                    this.showList = arr;
+
+
+                }
+
+
+            }
+
+
+
+        }
+        )
+
+    </script>
+
+</body>
+
+</html>
