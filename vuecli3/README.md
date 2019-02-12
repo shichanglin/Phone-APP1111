@@ -1,4 +1,4 @@
-# cli333
+# vuecli3
 
 ## Project setup
 ```
