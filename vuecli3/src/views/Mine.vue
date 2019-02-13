@@ -1,15 +1,17 @@
 <template>
-    <div>
-asdfasdfasdf
-    </div>
+  <div>
+
+      asdfasdfasdf
+    <h1> {{$route.params.name}}
+    ----{{$route.params.id}}</h1>
+   
+  
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {};
 </script>
 
 <style scoped>
-
 </style>

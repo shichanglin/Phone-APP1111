@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <div id="nav">
     <router-view/>
+    <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/mine">Mine</router-link>
+      <router-link to="/redict/bb/66">Redict</router-link> |
+      <router-link to="/about/xx/5">About</router-link> |
+      <router-link :to="{name:'mine',params:{name:'zs',id:'001'}}">Mine</router-link>|
+      <router-link to="/test">Test</router-link>
     </div>
     
   </div>
