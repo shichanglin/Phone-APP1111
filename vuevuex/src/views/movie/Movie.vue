@@ -16,6 +16,8 @@
         </div>
       </li>
     </ul>
+    <img class="loding"  v-show="isLoding" src="@/assets/imgs/loading.gif" alt="">
+    <div class="footer" v-show="isFooter">到底了</div>
   </div>
 </template>
 
@@ -25,6 +27,8 @@ import Axios from "axios"
       data(){
         return  {
           movieList:[],
+          isLoding:false,
+          isFooter:false
           }
       },
       created() {
@@ -32,12 +36,12 @@ import Axios from "axios"
    
       window.onscroll = ()=>{
         //滚动条高度
-        console.log(document.documentElement.scrollTop);
+        // console.log(document.documentElement.scrollTop);
         //页面可视高度
-        console.log(document.documentElement.clientHeight);
+        // console.log(document.documentElement.clientHeight);
         //整个滚动条的页面总高度
-        console.log(document.documentElement.scrollHeight);
-          if(document.documentElement.scrollTop+document.documentElement.clientHeight==document.documentElement.scrollHeight){
+        // console.log(document.documentElement.scrollHeight);
+          if(document.documentElement.scrollTop+document.documentElement.clientHeight==document.documentElement.scrollHeight && !this.isFooter){
               this.getMovie();
           }
       }
@@ -45,11 +49,14 @@ import Axios from "axios"
     },
     methods: {
       getMovie(){
-       Axios.get("/movie"+this.movieList.length+".json")
-      // Axios.get("https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/top250?start="+this.movieList.length+"&count=10")
+      //  Axios.get("/movie"+this.movieList.length+".json")
+      Axios.get("https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?city=广州&start="+this.movieList.length+"&count=10")
       .then((message)=>{
-        console.log(message);
         this.movieList = [...this.movieList,...message.data.subjects];
+        this.isLoding = false;
+        if(this.movieList.length == message.data.total){
+          this.isFooter = true;
+        }
       })
       .catch();
       }
@@ -77,5 +84,12 @@ li img {
   flex-grow: 1;
   margin-left: 0.2rem;
 }
-
+.loding{
+    position: fixed;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        width:1rem;
+        height:1rem;
+}
 </style>
