@@ -5,9 +5,8 @@
         <img :src="value" alt>
       </li>
     </ul>
-    <ul class="btns"> 
-        <li v-for="(i,index) in imgs.length" :key="index"  :class="{active:index == inow}">
-        </li>
+    <ul class="btns">
+      <li v-for="(i,index) in imgs.length" :key="index" :class="{active:index == inow}"></li>
     </ul>
   </div>
 </template>
@@ -19,7 +18,7 @@ export default {
       imgs: [
         "https://img3.doubanio.com/lpic/s24468373.jpg",
         "https://img3.doubanio.com/lpic/s27102925.jpg",
-        "https://img3.doubanio.com/lpic/s6989253.jpg",
+        "https://img3.doubanio.com/lpic/s6989253.jpg"
         // "https://img3.doubanio.com/lpic/s6989253.jpg"
       ],
       inow: 0
@@ -42,29 +41,24 @@ export default {
   height: 6rem;
 }
 .btns li {
-    z-index: 11;
-    width:0.2rem;
-    height:0.2rem;
-    background: #f00;
-    border-radius: 50%;
-    margin-right:0.1rem;
-    float: left;
-
+  z-index: 11;
+  width: 0.2rem;
+  height: 0.2rem;
+  background: #f00;
+  border-radius: 50%;
+  margin-right: 0.1rem;
+  float: left;
 }
 .btns {
-    position: absolute;
-    left:50%;
-    transform: translateX(-50%);
-    bottom: 0.2rem;
-
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0.2rem;
 }
-.btns li.active{
-
-    background: #0f0;
-
+.btns li.active {
+  background: #0f0;
 }
-.slide-wraper{
-    position: relative;
-
+.slide-wraper {
+  position: relative;
 }
 </style>

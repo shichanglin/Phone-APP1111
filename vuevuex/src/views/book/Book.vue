@@ -1,22 +1,21 @@
 <template>
-    <div>
-        图书
-        <swipe class="my-swipe">
-        <swipe-item class="slide1"></swipe-item>
-        <swipe-item class="slide2"></swipe-item>
-        <swipe-item class="slide3"></swipe-item>
-</swipe>
-    </div>
+  <div>图书
+    <swipe class="my-swipe">
+      <swipe-item class="slide1"></swipe-item>
+      <swipe-item class="slide2"></swipe-item>
+      <swipe-item class="slide3"></swipe-item>
+    </swipe>
+  </div>
 </template>
 <script>
-    require('vue-swipe/dist/vue-swipe.css');
-   import { Swipe, SwipeItem } from 'vue-swipe';
-    export default {  
-        components: {
-            Swipe,
-            SwipeItem
-            }       
-    }
+require("vue-swipe/dist/vue-swipe.css");
+import { Swipe, SwipeItem } from "vue-swipe";
+export default {
+  components: {
+    Swipe,
+    SwipeItem
+  }
+};
 </script>
 
 <style scoped>
@@ -28,7 +27,7 @@
 }
 
 .slide1 {
-   background: url(D:\weichuang\Phone-APP1111\vuevuex\public\img\01.jpg) cover;
+  background: url(D:\weichuang\phone-app1111\vuevuex\public\img\01.jpg) cover;
   color: #fff;
 }
 
