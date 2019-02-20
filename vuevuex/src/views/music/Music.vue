@@ -19,10 +19,8 @@
             })
             .catch();
         },
-        methods: {
-            
+        methods: {           
             goList(){
-
                 this.$router.push('/musiclist')
             }
         },
