@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+
+        class Main extends React.Component{
+            constructor(params){
+                super(params);
+                this.state = {
+                    opacity:1
+                }
+            }
+            //组件将要挂载
+            componentDidMount(){
+                this.timer = setInterval(() => {
+                    if(this.state.opacity <=0 ){
+                        this.setState({
+                        opacity:1
+                    })
+                    }else{
+                        this.setState({
+                        opacity:this.state.opacity-0.1
+                    })
+                        
+                    }                 
+                }, 200);
+
+            }
+            componentDidUpdate(prevProps, prevState) {
+              console.log('componentDidUpdate',prevProps, prevState) 
+                
+            }
+
+            
+            // shouldComponentUpdate(nextProps,nextState){
+            //     console.log('shoudComponent',nextProps,nextState)
+
+            // }
+            componentWillUpdate(prevProps, prevState){
+                console.log('componentWillUpdate',prevProps, prevState) 
+            }
+            unmount(){
+            ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+            }
+            componentWillUnmount() {
+              clearInterval(this.timer)
+            }
+            
+            render(){
+                let {opacity}=this.state;
+                return(
+                  
+                    <div>
+                     <h1 style={{opacity}}>hahhhaha</h1>
+                     <button onClick={this.unmount} >stop</button>
+                    </div>
+                   
+                ) 
+                   
+            }
+           
+        }
+        ReactDOM.render(<Main></Main>,document.getElementById('root'));
+    
+    </script>
+</body>
+
+</html>

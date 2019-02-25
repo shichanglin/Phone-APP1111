@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active{
+            background: #085e0a;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+        class Main extends React.Component{
+            constructor(params){
+                super(params);
+                this.state={
+                    todos:[{
+                           id:'01',
+                            name:'吃饭',
+                            isActive:false
+                        }               
+                     ],
+                    todoList:[
+                    {
+                           id:'01',
+                            name:'吃饭',
+                            isActive:false
+                        } 
+                    ],
+                   
+                }
+                // this.id =this.id.bind(this)
+                this.change =this.change.bind(this)
+                this.addHandler = this.addHandler.bind(this)
+                this.delHandler = this.delHandler.bind(this)
+                this.searchHandler = this.searchHandler.bind(this)
+                
+            }
+            addHandler(val){
+                let todos = [...this.state.todos];
+                todos.push({name:val,isActive:false,id:((new Date()).getTime())});
+                this.setState({
+                    todos,
+                    todoList:todos
+                })             
+            }
+            change(id){
+                //数组中索引是index的isActive取非
+                let index = this.state.todos.findIndex(function(obj,index){
+                    return obj.id == id
+                })
+                let todos = [...this.state.todos];
+                todos[index].isActive =!todos[index].isActive;
+                this.setState({
+                    todos,
+                    todoList:todos
+                  
+                })
+            }
+            delHandler(id){
+                let todos = this.state.todos.filter((obj)=>{
+                    return obj.id !=id;
+                })  
+                this.setState({
+                    todos,
+                    todoList:todos
+                })
+            }
+            searchHandler(value){
+                let todoList=this.state.todos.filter((obj)=>{
+                    return obj.name.includes(value)
+                })
+                this.setState({
+                    todoList
+                })
+            }
+            render(){
+               return(
+                   <div>
+                    <h1>todolist</h1>
+                    <Sou searchHandler={this.searchHandler}></Sou>
+                    <Add addHandler ={this.addHandler}  ></Add>
+                    <List todos ={this.state.todoList} change={this.change} delHandler={this.delHandler}></List>
+                    </div>
+               )
+            }
+        }
+        class Sou extends React.Component{
+            render(){
+               return(
+                   <div>
+                   搜索： <input type="text" onChange={
+                    (e)=>{
+                     this.props.searchHandler(e.target.value)
+                    }
+                   }/>
+                    </div>
+               )
+            }
+        }
+        class Add extends React.Component{
+            constructor(params){
+                super(params);
+                this.add =this.add.bind(this)
+            }
+            add(){
+                //清空输入框的值
+                if(this.myInput.value){
+                    this.props.addHandler(this.myInput.value);
+                    this.myInput.value=''
+                }
+            }
+            render(){
+               return(
+                   <div>
+                   添加： <input type="text" ref={input=>{this.myInput =input}}/>
+                    <button onClick={this.add} >Add</button>
+                    </div>
+               )
+            }
+        }
+        class List extends React.Component{
+            constructor(params){
+                super(params);
+            }        
+            render(){
+            return(//这个括弧一定不能换行
+                   <div>
+                <ul>  
+                    {
+                  this.props.todos.map((val,index)=> {
+                            return <li key={val.id} className={val.isActive?'active':'' } >
+                                <input type="checkbox" 
+                                defaultChecked={val.isActive} 
+                                onClick={()=>{this.props.change(val.id)}}/>
+                                {val.name} 
+                                <button onClick={()=>{
+                                    this.props.delHandler(val.id)
+                                }}>删除</button>
+                               </li>                       
+                      })
+                  }
+                    </ul>
+                    <div>已完成项{this.props.todos.filter((obj)=>{
+                        return obj.isActive == true
+                    }).length}/共有{this.props.todos.length}项</div>
+                 </div>
+               )
+            }
+        }
+    ReactDOM.render(<Main></Main>,document.getElementById('root'))
+        
+    </script>
+</body>
+</html>
