@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import store from './store';
-import action from './action';
+import {add,minus,cet4} from './action';
 import {connect} from 'react-redux';
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
   }
   addHandler(){
     console.log('add')
-    store.dispatch(action(2))
+    store.dispatch(add(2))
   }
   render() {
     return (
@@ -19,7 +19,20 @@ class App extends Component {
       首页{this.props.count}
       <button onClick={
         this.addHandler
-      }>click</button>
+      }>++</button>
+      <button onClick={()=>{
+        store.dispatch(minus(3))
+      }
+        
+      }>--</button>
+      <div>
+        <h1>哈哈：{this.props.cet4}</h1>
+        <button onClick={()=>{
+          store.dispatch(cet4(10))
+        }
+        }>考个试
+        </button>
+      </div>
       </div>
     );
   }
@@ -33,9 +46,10 @@ class App extends Component {
 // })(App) ;
 
 // 方法二
-let maoStatetiProps =(state)=>{
+let mapStatetiProps =(state)=>{
   return{
-    count:state.count
+    count:state.count,
+    cet4:state.cet4
   }
 }
-export default connect(maoStatetiProps)(App);
+export default connect(mapStatetiProps)(App);
